@@ -1,0 +1,7 @@
+FROM ubuntu:10.0.1
+# Update the image’s metadata
+LABEL org.hagrawal7777.image.authors="query@h7.com"
+# Remove the tmp directory
+RUN rm -r $HOME/tmp
+# Command to run within the container
+CMD python /apps/ha.py

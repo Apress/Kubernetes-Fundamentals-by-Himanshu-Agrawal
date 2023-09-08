@@ -1,0 +1,6 @@
+FROM ubuntu:10.0.1
+LABEL org.hagrawal7777.image.authors="query@h7.com"
+COPY . /apps
+RUN make /apps
+RUN rm -r $HOME/tmp
+CMD python /apps/ha.py
