@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: ha-daemonset
+  namespace: default
+  labels:
+    ktype: ha-daemonset-type
+spec:
+  selector:
+    matchLabels:
+      name: ha-daemonset
+  template:
+    metadata:
+      labels:
+        name: ha-daemonset
+    spec:
+      containers:
+      - name: ha-daemonset
+        image: quay.io/fluentd_elasticsearch/fluentd:v4.0.0
+      terminationGracePeriodSeconds: 60
