@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ha-nginx-job-parallel-completion
+spec:
+  completions: 2
+  parallelism: 4
+  template:
+    spec:
+      containers:
+      - name: ha-nginx-job-parallel-completion-c-1
+        image: nginx:1.10.1
+        command:
+         - "/bin/bash"
+         - "-c"
+         - "date; echo hello from ha-nginx-job-parallel-completion"
+      restartPolicy: Never
+  backoffLimit: 2

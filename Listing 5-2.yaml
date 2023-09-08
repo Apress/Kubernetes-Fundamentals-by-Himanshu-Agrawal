@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ha-nginx-job-backofflimit
+spec:
+  template:
+    spec:
+      containers:
+      - name: ha-nginx-job-backofflimit-c-1
+        image: nginx:1.10.1
+        command:
+         - “/bin/basher”
+         - “-c”
+         - “echo hello from ha-nginx-job-backofflimit”
+      restartPolicy: Never
+  backoffLimit: 3

@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: ha-nginx-cronjob
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: ha-nginx-cronjob-c-1
+            image: nginx:1.10.1
+            command:
+             - "/bin/bash"
+             - "-c"
+             - "date; echo hello from ha-nginx-cronjob"
+          restartPolicy: Never
