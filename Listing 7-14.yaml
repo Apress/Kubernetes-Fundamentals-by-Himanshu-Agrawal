@@ -1,0 +1,1 @@
+kubectl create secret generic ha-secret-file --from-file=username.txt --from-file=password.txt

@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ha-secret-spec
+data:
+  ha-username: dXNlcjE=
+  ha-password: dXNlcjFwYXNzd29yZDE=
+type: Opaque

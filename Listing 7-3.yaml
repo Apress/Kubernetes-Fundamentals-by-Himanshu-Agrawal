@@ -1,0 +1,9 @@
+[...]	
+spec:
+  containers:
+    [...]
+  volumes:
+    - name: ha-csi-volume-1
+      csi:
+        driver: inline.storage.kubernetes.io
+[...]

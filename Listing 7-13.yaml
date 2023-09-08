@@ -1,0 +1,1 @@
+kubectl create secret generic ha-secret --from-literal=ha-username=user1 --from-literal=ha-password=user1password1

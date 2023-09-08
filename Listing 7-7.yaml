@@ -1,0 +1,1 @@
+kubectl create configmap ha-config-map --from-literal=ha-key1=ha-value1 --from-literal=ha-key2=ha-value2

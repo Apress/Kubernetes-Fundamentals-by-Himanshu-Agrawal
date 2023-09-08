@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ha-nginx-all-configmap-pod
+spec:
+  containers:
+  - name: ha-nginx-all-configmap-pod-c-1
+    image: nginx:1.10.1
+    command: [ "/bin/sh", "-c", "echo $HA_HELLO $HA_WORLD, from ha-nginx-all-configmap-pod" ]
+    envFrom:
+    - configMapRef:
+        name: ha-config-map

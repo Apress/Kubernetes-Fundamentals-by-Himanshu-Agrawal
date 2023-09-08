@@ -1,0 +1,12 @@
+[...]
+spec:
+  containers:
+  - name: ha-volume-c-1
+    image: nginx:1.10.1
+    volumeMounts:
+    - mountPath: /var
+      name: ha-volume-v1
+  volumes:
+  - name: ha-volume-v1
+    emptyDir: {}
+[...]

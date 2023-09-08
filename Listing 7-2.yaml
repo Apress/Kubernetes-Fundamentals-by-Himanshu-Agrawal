@@ -1,0 +1,12 @@
+[...]
+volumes:
+- name: ha-volume-v1
+  downwardAPI:
+	items:
+	  - path: "labels"
+		fieldRef:
+		  fieldPath: metadata.labels
+	  - path: "annotations"
+		fieldRef:
+		  fieldPath: metadata.annotations
+[...]
