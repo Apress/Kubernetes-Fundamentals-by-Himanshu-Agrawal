@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ha-nodeselector-pod
+spec:
+  containers:
+  - name: ha-nodeselector-c-1
+    image: nginx:1.10.1
+  nodeSelector:
+    topology.kubernetes.io/region: us-central1

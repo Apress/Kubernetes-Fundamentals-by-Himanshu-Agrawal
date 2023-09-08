@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ha-nodename-pod
+spec:
+  nodeName: ha-cluster-1-pool-1-8e091408c-2drw 
+  containers:
+  - name: ha-nodename-c-1
+    image: nginx:1.10.1

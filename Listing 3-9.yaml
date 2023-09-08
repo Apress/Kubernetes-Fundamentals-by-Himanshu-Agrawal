@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ha-backend-service-pod
+spec:
+  selector:
+    matchLabels:
+      serv: backend
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        serv: backend
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: serv
+                operator: In
+                values:
+                - backend
+            topologyKey: "kubernetes.io/hostname"
+      containers:
+      - name: ha-backend-c-1
+        image: nginx:1.10.1

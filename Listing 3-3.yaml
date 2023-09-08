@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ha-nginx-pod-init
+  labels:
+    app: ha-nginx-p-i
+spec:
+  containers:
+  - name: ha-nginx-c-1
+    image: nginx:1.10.1
+    ports:
+    - containerPort: 80
+  initContainers:
+  - name: ha-init-c-1
+    image: busybox:1.28
+    command: [‘sh’, ‘-c’, ‘echo ha-init-c-1 initContainers is running!’]

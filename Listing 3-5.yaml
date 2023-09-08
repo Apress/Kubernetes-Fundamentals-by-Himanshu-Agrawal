@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ha-node-affinity-pod
+  labels:
+    topology.kubernetes.io/region: us-central1
+spec:
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: topology.kubernetes.io/region
+            operator: In
+            values:
+            - us-central1
+            - us-central1-b
+  containers:
+  - name: ha-node-affinity-c-1
+    image: registry.k8s.io/pause:1.0

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ha-nginx-two-container-pod
+  labels:
+    app: ha-nginx-p
+spec:
+  containers:
+  - name: ha-nginx-c-1
+    image: nginx:1.10.1
+    ports:
+    - containerPort: 8080
+  - name: ha-nginx-c-2
+    image: quay.io/fluentd_elasticsearch/fluentd:v4.0.0
