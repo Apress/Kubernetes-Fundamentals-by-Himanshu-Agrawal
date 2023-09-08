@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ha-taint-toleration-pod-1
+spec:
+  containers:
+  - name: ha-taint-toleration-pod-c-1
+    image: nginx:1.10.1
+  tolerations:
+  - key: "tk1"
+    operator: "Equal"
+    value: "tv1"
+    effect: "NoSchedule"
+  - key: "tk2"
+    operator: "Equal"
+    value: "tv2"
+    effect: "NoSchedule"

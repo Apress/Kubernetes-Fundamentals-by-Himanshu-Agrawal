@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ha-liveness-exec-pod
+spec:
+  containers:
+  - name: ha-liveness-exec-pod-c-1
+    image: nginx:1.10.1
+    command: [ "/bin/sh", "-c", "touch /tmp/liveness; sleep 150; rm -f /tmp/liveness; sleep 600" ]
+    livenessProbe:
+      exec:
+        command:
+        - cat
+        - /tmp/liveness
+      initialDelaySeconds: 120
+      periodSeconds: 50

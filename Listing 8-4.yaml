@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ha-readiness-exec-pod
+spec:
+  containers:
+  - name: ha-readiness-exec-pod-c-1
+    image: nginx:1.10.1
+    command: [ "/bin/sh", "-c", "touch /tmp/readiness; sleep 150; rm -f /tmp/readiness; sleep 600;" ]
+    readinessProbe:
+      exec:
+        command:
+        - cat
+        - /tmp/readiness
+      initialDelaySeconds: 120
+      periodSeconds: 50
