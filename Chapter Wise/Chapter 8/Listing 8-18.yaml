@@ -1,0 +1,7 @@
+[...]
+tolerations:
+- key: "tk1"
+  operator: "Equal"
+  value: "tv1" 
+  effect: "NoSchedule"
+[...]

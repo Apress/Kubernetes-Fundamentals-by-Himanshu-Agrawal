@@ -1,0 +1,2 @@
+kubectl taint nodes ha-node tk1=tv1:NoSchedule
+kubectl taint nodes ha-node tk2=tv2:NoSchedule

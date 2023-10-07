@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ha-label-pod-v1
+  labels:
+    app: ha-label-pod
+    version: v1
+spec:
+  containers:
+  - name: ha-label-v1-c-1
+    image: nginx:1.10.1
+    ports:
+    - containerPort: 80

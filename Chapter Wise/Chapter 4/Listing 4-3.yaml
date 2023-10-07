@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: ha-replicaset
+  labels:
+    ktype: ha-replicaset
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      ktype: ha-replicaset
+  template:
+    metadata:
+      labels:
+        ktype: ha-replicaset
+    spec:
+      containers:
+      - name: ha-replicaset-c-1
+        image: nginx:1.10.1

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ha-annotation-pod
+  annotations:
+    chapter-number: five
+    section-name: labels-and-label-selectors
+    sub-section-name: annotation
+spec:
+  containers:
+  - name: ha-annotation-c-1
+    image: nginx:1.10.1
+    ports:
+    - containerPort: 80

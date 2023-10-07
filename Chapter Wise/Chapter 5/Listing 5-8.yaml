@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ha-namespace-pod
+  namespace: ha-namespace-n1
+  labels:
+    app: ha-nginx-p
+spec:
+  containers:
+  - name: ha-namespace-c-1
+    image: nginx:1.10.1
+    ports:
+    - containerPort: 80

@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ha-ingress-fanout
+spec:
+  rules:
+  - host: test.com
+    http:
+      paths:
+      - path: /test1
+        pathType: Prefix
+        backend:
+          service:
+            name: service1
+            port:
+              number: 8080
+      - path: /test2
+        pathType: Prefix
+        backend:
+          service:
+            name: service2
+            port:
+              number: 8081

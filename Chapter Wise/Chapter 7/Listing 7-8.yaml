@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ha-config-map-spec-file
+data:
+  ha-key1: ha-value1
+  ha_key2: ha_value2
+  hakey3: havalue3

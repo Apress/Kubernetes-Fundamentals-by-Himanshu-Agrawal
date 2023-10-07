@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ha-runtimeclass-pod
+spec:
+  runtimeClassName: ha-runtimeclass
+# ...

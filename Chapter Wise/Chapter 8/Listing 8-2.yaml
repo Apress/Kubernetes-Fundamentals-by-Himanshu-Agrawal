@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ha-liveness-http-get-pod
+spec:
+  containers:
+[...]
+    livenessProbe:
+      httpGet:
+        path: /livenessCheck
+        port: 8080
+        httpHeaders:
+        - name: ha-header
+          value: 10
+      initialDelaySeconds: 120
+      periodSeconds: 30
+[...]

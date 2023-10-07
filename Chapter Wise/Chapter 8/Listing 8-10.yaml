@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ha-too-high-resource-requests-pod-failure
+spec:
+  containers:
+  - name: ha-too-high-resource-requests-pod-failure-c-1
+    image: nginx:1.10.1
+    resources:
+      limits:
+        memory: "500Gi"
+        cpu: "100"
+      requests:
+        memory: "500Gi"
+        cpu: "100"

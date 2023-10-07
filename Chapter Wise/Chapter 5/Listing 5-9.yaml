@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ha-label-pod
+  labels:
+    apps.abc.com/name: ha-frontend-app
+    apps.abc.com/version: 23.22.05
+    apps.abc.com/environment: prod
+    apps.abc.com/component-type: frontend-service
+    apps.abc.com/deployment-type: rolling-update
+spec:
+  containers:
+  - name: ha-label-c-1
+    image: nginx:1.10.1
+    ports:
+    - containerPort: 80

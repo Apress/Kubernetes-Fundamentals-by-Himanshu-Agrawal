@@ -1,0 +1,14 @@
+[...]
+spec:
+  containers:
+    - name: ha-nginx-volume-configmap-pod-c-1
+      image: nginx:1.10.1
+      command: [ "/bin/sh", "-c", "ls /opt/data/" ]
+      volumeMounts:
+      - name: ha-config-map-volume
+        mountPath: /opt/data
+  volumes:
+    - name: ha-config-map-volume
+      configMap:
+        name: ha-config-map
+[...]

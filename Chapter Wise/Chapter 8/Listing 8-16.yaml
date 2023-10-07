@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ha-high-priority-pod
+spec:
+  containers:
+  - name: ha-high-priority-pod-c-1
+    image: nginx:1.10.1
+  priorityClassName: ha-high-priority

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ha-pod-pv
+spec:
+  volumes:
+    - name: ha-pod-pv-volume
+      persistentVolumeClaim:
+        claimName: ha-persistent-volume-claim
+  containers:
+    - name: ha-pod-pv-c-1
+      image: nginx:1.10.1
+      ports:
+        - containerPort: 80
+      volumeMounts:
+        - mountPath: "/tmp"
+          name: ha-pod-pv-volume

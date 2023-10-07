@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    ktype: deployment
+  name: ha-nginx-deployment
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      ktype: deployment
+  strategy:
+    rollingUpdate:
+      maxSurge: 20%
+      maxUnavailable: 20%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        ktype: deployment
+    spec:
+      containers:
+      - image: nginx:1.10.1
+        name: ha-nginx-c-1
+        ports:
+        - containerPort: 80

@@ -1,0 +1,1 @@
+kubectl create configmap ha-config-map-props-file --from-file=ha_config.properties

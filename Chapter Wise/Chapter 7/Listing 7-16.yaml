@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ha-secret-pod
+spec:
+  containers:
+  - name: ha-secret-pod-c-1
+    image: nginx:1.10.1
+    command: [ "/bin/sh", "-c", "echo Hello, $HA_USERNAME!" ]
+    env:
+    - name: HA_USERNAME
+      valueFrom:
+        secretKeyRef:
+          name: ha-secret-spec
+          key: ha-username

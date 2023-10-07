@@ -1,0 +1,7 @@
+apiVersion: scheduling.k8s.io/v1
+kind: PriorityClass
+metadata:
+  name: ha-high-priority
+value: 100
+globalDefault: false
+description: "This priority class is for important pods."

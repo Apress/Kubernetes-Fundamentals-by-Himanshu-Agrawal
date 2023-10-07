@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ha-nginx-configmap-pod
+spec:
+  containers:
+  - name: ha-nginx-configmap-pod-c-1
+    image: nginx:1.10.1
+    command: [ "/bin/sh", "-c", "echo $SPECIAL_LEVEL_KEY from ha-nginx-configmap-pod" ]
+    env:
+    - name: SPECIAL_LEVEL_KEY
+      valueFrom:
+        configMapKeyRef:
+          name: ha-config-map
+          key: HA_HELLO
